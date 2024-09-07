@@ -17,8 +17,16 @@ const CreateStreamSchema = z.object({
 export async function POST(req: NextRequest) {
   try {
     const data = CreateStreamSchema.parse(await req.json());
-    prismaClient.stream.create({
-      userId: data.createId,
+
+    const extractedId = data.url.split("?v=")[1];
+
+    await prismaClient.stream.create({
+      data: {
+        userId: data.createId,
+        url: data.url,
+        extractedId,
+        type: "Youtube",
+      },
     });
   } catch (error) {
     return NextResponse.json(
