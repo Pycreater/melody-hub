@@ -12,7 +12,7 @@ const Appbar = () => {
       <div>
         {session.data?.user && (
           <button
-            className="bg-blue-500 text-white hover:cursor-pointer hover:bg-blue-600 rounded-xl p-3"
+            className="bg-blue-500 text-white hover:cursor-pointer hover:bg-blue-600 rounded-xl p-3 hover:shadow-xl"
             onClick={() => signOut()}
           >
             Logout
