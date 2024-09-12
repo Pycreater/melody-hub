@@ -16,11 +16,14 @@ const AnimatedSphere = () => {
   const meshRef = useRef<ThreeElements["mesh"]>(null);
   useFrame(() => {
     if (meshRef.current) {
+      //@ts-ignore
       meshRef.current.rotation.x += 0.01;
+      //@ts-ignore
       meshRef.current.rotation.y += 0.01;
     }
   });
   return (
+    //@ts-ignore
     <Sphere args={[1, 100, 200]} scale={2.5} ref={meshRef}>
       <MeshDistortMaterial
         color="#ffffff"
