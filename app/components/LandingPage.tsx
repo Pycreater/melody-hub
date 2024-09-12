@@ -215,7 +215,7 @@ export default function LandingPage() {
                   Sign up now and get 3 months free premium access.
                 </p>
               </div>
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg transition duration-300 ease-in-out hover:scale-105">
+              <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl transition duration-300 ease-in-out hover:scale-105">
                 Start Free Trial
               </button>
             </motion.div>
