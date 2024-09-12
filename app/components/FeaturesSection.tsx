@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Headphones, Radio, Mic2 } from "lucide-react";
@@ -10,19 +12,19 @@ const FeaturesSection: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid gap-12 lg:grid-cols-3 items-center">
           <FeatureCard
-            icon={<Headphones className="h-12 w-12 mb-4 text-white" />}
+            icon={<Headphones className="h-12 w-12 mb-4 text-pink-500" />}
             title="Unlimited Listening"
             description="Stream any song, anytime, anywhere."
             delay={0}
           />
           <FeatureCard
-            icon={<Radio className="h-12 w-12 mb-4 text-white" />}
+            icon={<Radio className="h-12 w-12 mb-4 text-purple-500" />}
             title="Personalized Playlists"
             description="Discover new music tailored to your taste."
             delay={0.2}
           />
           <FeatureCard
-            icon={<Mic2 className="h-12 w-12 mb-4 text-white" />}
+            icon={<Mic2 className="h-12 w-12 mb-4 text-indigo-500" />}
             title="High-Quality Audio"
             description="Experience crystal-clear sound quality."
             delay={0.4}
@@ -51,13 +53,13 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="flex flex-col items-center text-center"
+      className="flex flex-col items-center text-center bg-white bg-opacity-10 backdrop-blur-lg rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
     >
       {icon}
-      <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "Poppins" }}>
+      <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
         {title}
       </h2>
-      <p className="text-gray-400">{description}</p>
+      <p className="text-gray-300">{description}</p>
     </motion.div>
   );
 };

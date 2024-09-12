@@ -6,7 +6,7 @@ import HeroSection from "./HeroSection";
 import FeaturesSection from "./FeaturesSection";
 import TextRevealSection from "./TextRevealSection";
 import CommunitySection from "./CommunitySection";
-import TeamSection from "./TeamSection";
+import SoloSection from "./SoloSection";
 import RevolutionSection from "./RevolutionSection";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -29,17 +29,22 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white overflow-hidden">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-black via-purple-900 to-black text-white overflow-hidden">
       <style jsx global>{`
         @import url("${fontUrl}");
+        body {
+          font-family: "Poppins", sans-serif;
+        }
       `}</style>
       <Header isScrolled={isScrolled} />
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
+        {" "}
+        {/* Add padding-top to account for the fixed header */}
         <HeroSection opacity={opacity} scale={scale} />
         <FeaturesSection />
         <TextRevealSection />
         <CommunitySection />
-        <TeamSection />
+        <SoloSection />
         <RevolutionSection />
       </main>
       <Footer />
