@@ -107,13 +107,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ opacity, scale }) => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-x-4"
           >
-            <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 px-6 py-3 rounded-full flex items-center transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-              Get Started
-              <Play className="ml-2 h-5 w-5" />
-            </button>
-            <button className="border border-white text-white hover:bg-white hover:text-purple-900 px-6 py-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
-              Learn More
-            </button>
+            <div className="flex gap-3">
+              <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 px-6 py-3 rounded-full flex items-center transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                Get Started
+                <Play className="ml-2 h-5 w-5" />
+              </button>
+              <button className="border border-white text-white hover:bg-white hover:text-purple-900 px-6 py-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                Learn More
+              </button>
+            </div>
           </motion.div>
         </div>
       </motion.div>
