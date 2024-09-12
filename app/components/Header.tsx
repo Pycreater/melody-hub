@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
       <Link className="flex items-center justify-center" href="#">
         <Music className="h-6 w-6 mr-2 text-white" />
         <span className="font-bold text-lg" style={{ fontFamily: "Poppins" }}>
-          TrendFusion
+          MelodyHub
         </span>
       </Link>
       <nav className="ml-auto flex gap-4 sm:gap-6 items-center">

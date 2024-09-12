@@ -18,7 +18,7 @@ const TextRevealSection: React.FC = () => {
             Elevate Your Music Experience
           </TextRevealCardTitle>
           <TextRevealCardDescription>
-            With TrendFusion, immerse yourself in a world of endless musical
+            With MelodyHub, immerse yourself in a world of endless musical
             possibilities. Our cutting-edge technology and vast library ensure
             you always have the perfect soundtrack for every moment.
           </TextRevealCardDescription>

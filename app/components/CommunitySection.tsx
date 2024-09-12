@@ -29,7 +29,7 @@ const CommunitySection: React.FC = () => {
               className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500"
               style={{ fontFamily: "Poppins" }}
             >
-              Join the TrendFusion Community
+              Join the MelodyHub Community
             </h2>
             <p
               className="mx-auto max-w-[600px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"

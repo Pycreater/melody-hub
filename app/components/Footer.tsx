@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="mt-12 text-center">
           <p className="text-sm" style={{ fontFamily: "Poppins" }}>
-            © {new Date().getFullYear()} TrendFusion. All rights reserved.
+            © {new Date().getFullYear()} MelodyHub. All rights reserved.
           </p>
         </div>
       </div>

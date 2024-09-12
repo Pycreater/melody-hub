@@ -20,7 +20,7 @@ const RevolutionSection: React.FC = () => {
               </h1>
               <p className="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto">
                 Join millions of music lovers who have already discovered the
-                power of TrendFusion. Your perfect soundtrack awaits.
+                power of MelodyHub. Your perfect soundtrack awaits.
               </p>
             </div>
             <div className="w-full max-w-full space-y-4 mx-auto">

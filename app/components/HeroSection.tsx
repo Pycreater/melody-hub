@@ -48,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ opacity, scale }) => {
               className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
               style={{ fontFamily: "Poppins" }}
             >
-              Discover Your Sound with TrendFusion
+              Discover Your Sound with MelodyHub
             </h1>
             <p
               className="mx-auto max-w-[700px] text-gray-400 md:text-xl lg:text-2xl"
