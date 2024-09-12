@@ -3,12 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import { Music } from "lucide-react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 interface HeaderProps {
   isScrolled: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
+  const session = useSession();
   return (
     <header
       className={`${
@@ -43,20 +45,24 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
         >
           About
         </Link>
-        <Link
-          className="text-sm font-medium bg-white text-black px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-gray-200"
-          href="#"
-          style={{ fontFamily: "Poppins" }}
-        >
-          Sign In
-        </Link>
-        <Link
-          className="text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full transition duration-300 ease-in-out hover:from-purple-600 hover:to-pink-600"
-          href="#"
-          style={{ fontFamily: "Poppins" }}
-        >
-          Sign Up
-        </Link>
+        {session.data?.user && (
+          <button
+            className="text-sm font-medium bg-white text-black px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-gray-200"
+            onClick={() => signOut()}
+            style={{ fontFamily: "Poppins" }}
+          >
+            Sign In
+          </button>
+        )}
+        {!session.data?.user && (
+          <button
+            className="text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full transition duration-300 ease-in-out hover:from-purple-600 hover:to-pink-600"
+            onClick={() => signIn()}
+            style={{ fontFamily: "Poppins" }}
+          >
+            Sign Up
+          </button>
+        )}
       </nav>
     </header>
   );
