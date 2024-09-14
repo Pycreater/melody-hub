@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import Navbar from "./navbar";
 import {
   Music,
   Play,
@@ -39,45 +39,12 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-gray-900">
-      <motion.header
-        className="px-4 lg:px-6 h-16 flex items-center border-b border-gray-200"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Link className="flex items-center justify-center" href="#">
-          <Music className="h-8 w-8 mr-2 text-black" />
-          <span className="font-bold text-xl text-black">MelodyHub</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-            href="#"
-          >
-            Features
-          </Link>
-          <Link
-            className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-            href="#"
-          >
-            Pricing
-          </Link>
-          <Link
-            className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-            href="#"
-          >
-            About
-          </Link>
-          <Button
-            variant="outline"
-            className="text-gray-900 border-gray-200 hover:bg-gray-100 transition-colors"
-          >
-            Sign In
-          </Button>
-        </nav>
-      </motion.header>
-      <main className="flex-1">
+    <div className="flex flex-col min-h-screen bg-white text-gray-900 relative overflow-hidden">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
+      </div>
+      <Navbar />
+      <main className="flex-1 pt-16">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <motion.div
@@ -102,14 +69,14 @@ export default function LandingPage() {
               <motion.div className="space-x-4" variants={itemVariants}>
                 <Button
                   size="lg"
-                  className="bg-black text-white hover:bg-gray-800 transition-colors"
+                  className="bg-black text-white hover:bg-gray-800 transition-colors rounded-xl"
                 >
                   Get Started
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-black border-gray-200 hover:bg-gray-100 transition-colors"
+                  className="text-black border-gray-200 hover:bg-gray-100 transition-colors rounded-xl"
                 >
                   Learn More
                 </Button>
@@ -125,47 +92,45 @@ export default function LandingPage() {
               initial="hidden"
               animate="visible"
             >
-              <motion.div variants={itemVariants}>
-                <Card className="bg-white border border-gray-200 hover:border-gray-300 transition-colors">
-                  <CardContent className="flex flex-col items-center space-y-2 p-6">
-                    <Play className="h-12 w-12 mb-2 text-black" />
-                    <h3 className="text-xl font-bold text-black">
-                      Instant Playback
-                    </h3>
-                    <p className="text-center text-gray-500">
-                      Start listening to your favorite tracks with just one
-                      click.
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <Card className="bg-white border border-gray-200 hover:border-gray-300 transition-colors">
-                  <CardContent className="flex flex-col items-center space-y-2 p-6">
-                    <Headphones className="h-12 w-12 mb-2 text-black" />
-                    <h3 className="text-xl font-bold text-black">
-                      Personalized Playlists
-                    </h3>
-                    <p className="text-center text-gray-500">
-                      Discover new music tailored to your unique taste.
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <Card className="bg-white border border-gray-200 hover:border-gray-300 transition-colors">
-                  <CardContent className="flex flex-col items-center space-y-2 p-6">
-                    <Radio className="h-12 w-12 mb-2 text-black" />
-                    <h3 className="text-xl font-bold text-black">
-                      Offline Mode
-                    </h3>
-                    <p className="text-center text-gray-500">
-                      Download your music and listen even without an internet
-                      connection.
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              {[
+                {
+                  icon: Play,
+                  title: "Instant Playback",
+                  description:
+                    "Start listening to your favorite tracks with just one click.",
+                },
+                {
+                  icon: Headphones,
+                  title: "Personalized Playlists",
+                  description:
+                    "Discover new music tailored to your unique taste.",
+                },
+                {
+                  icon: Radio,
+                  title: "Offline Mode",
+                  description:
+                    "Download your music and listen even without an internet connection.",
+                },
+              ].map((item, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="bg-white border border-gray-200 hover:border-gray-300 transition-all duration-300 rounded-xl hover:shadow-lg transform hover:-translate-y-1">
+                    <CardContent className="flex flex-col items-center space-y-2 p-6">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 360 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <item.icon className="h-12 w-12 mb-2 text-black" />
+                      </motion.div>
+                      <h3 className="text-xl font-bold text-black">
+                        {item.title}
+                      </h3>
+                      <p className="text-center text-gray-500">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </section>
