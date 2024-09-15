@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Music } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
   const session = useSession();
@@ -25,7 +25,7 @@ export default function Navbar() {
       <motion.header
         className={`px-4 lg:px-6 h-16 flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/80 backdrop-blur-md shadow-lg m-4 rounded-2xl"
+            ? "bg-white/80 backdrop-blur-xl shadow-lg m-4 rounded-2xl"
             : "bg-transparent"
         }`}
         initial={{ y: -50, opacity: 0 }}
@@ -68,6 +68,7 @@ export default function Navbar() {
                   ? "bg-primary text-primary-foreground hover:bg-primary/90"
                   : "text-gray-900 border-gray-200 hover:bg-gray-100"
               }
+              onClick={() => signIn()}
             >
               Sign In
             </Button>
@@ -80,6 +81,7 @@ export default function Navbar() {
                   ? "bg-primary text-primary-foreground hover:bg-primary/90"
                   : "text-gray-900 border-gray-200 hover:bg-gray-100"
               }
+              onClick={() => signOut()}
             >
               Logout
             </Button>
