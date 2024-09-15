@@ -60,7 +60,7 @@ export default function Navbar() {
               {item}
             </Link>
           ))}
-          {session.data?.user && (
+          {!session.data?.user && (
             <Button
               variant={isScrolled ? "default" : "outline"}
               className={
@@ -73,7 +73,7 @@ export default function Navbar() {
               Sign In
             </Button>
           )}
-          {!session.data?.user && (
+          {session.data?.user && (
             <Button
               variant={isScrolled ? "default" : "outline"}
               className={
