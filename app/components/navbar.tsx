@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Music } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
   const session = useSession();
