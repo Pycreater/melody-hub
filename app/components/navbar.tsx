@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Music } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
+  const session = useSession();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -58,16 +60,30 @@ export default function Navbar() {
               {item}
             </Link>
           ))}
-          <Button
-            variant={isScrolled ? "default" : "outline"}
-            className={
-              isScrolled
-                ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                : "text-gray-900 border-gray-200 hover:bg-gray-100"
-            }
-          >
-            Sign In
-          </Button>
+          {session.data?.user && (
+            <Button
+              variant={isScrolled ? "default" : "outline"}
+              className={
+                isScrolled
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "text-gray-900 border-gray-200 hover:bg-gray-100"
+              }
+            >
+              Sign In
+            </Button>
+          )}
+          {!session.data?.user && (
+            <Button
+              variant={isScrolled ? "default" : "outline"}
+              className={
+                isScrolled
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "text-gray-900 border-gray-200 hover:bg-gray-100"
+              }
+            >
+              Logout
+            </Button>
+          )}
         </nav>
       </motion.header>
     </AnimatePresence>
