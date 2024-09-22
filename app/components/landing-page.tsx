@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Redirect } from "./Redirect";
 
 export default function LandingPage() {
   const containerVariants = {
@@ -44,6 +45,7 @@ export default function LandingPage() {
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
       </div>
       <Navbar />
+      <Redirect />
       <main className="flex-1 pt-16">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
